@@ -1,6 +1,13 @@
+# -*- coding: utf-8 -*-
+
 from RPi import GPIO
+GPIO.setmode(GPIO.BCM)
 
 SPICLK, SPIMOSI, SPIMISO, SPICS=11,10,9,8
+GPIO.setup(SPICLK, GPIO.OUT)
+GPIO.setup(SPIMOSI, GPIO.OUT)
+GPIO.setup(SPIMISO, GPIO.IN)
+GPIO.setup(SPICS, GPIO.OUT)
 
 # MCP3208からSPI通信で12ビットのデジタル値を取得。0から7の8チャンネル使用可
 def readadc(adcnum, clockpin, mosipin, misopin, cspin):
