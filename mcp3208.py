@@ -16,7 +16,7 @@ class mcp3208():
         self.miso = SPIMISO
         if type == 0:
             self.type = 0
-        if type == 1
+        if type == 1:
             self.type = 1
 
     def read(self, adcnum):
