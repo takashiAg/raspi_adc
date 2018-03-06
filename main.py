@@ -8,15 +8,15 @@ def main():
     Adc = mcp3208()
     Start_time = time.time()
 
-    i = 100
+    Time_sample = 0.02
+    i=100
     while True:
-        times=time.time()
+        times = time.time()
         if Start_time < times + i:
             V = Adc.read_all()
-            print(times,V)
-            i += 0.020
-
-
+            if i % Time_sample == 0:
+                print(times, V)
+            i += Time_sample
 
     """
     while Start_time+10>time.time():
