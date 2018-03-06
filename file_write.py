@@ -1,6 +1,10 @@
+import os
+
 class file_write():
     def __init__(self,filename):
-        self.f = open("./"+filename, 'w')
+        base = os.path.dirname(os.path.abspath(__file__))
+        name = os.path.normpath(os.path.join(base, filename))
+        self.f = open(name, 'w')
 
     def write(self,time,value):
         self.f.write(str(time))
