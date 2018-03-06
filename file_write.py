@@ -3,7 +3,7 @@ import os
 class file_write():
     def __init__(self,filename):
         base = os.path.dirname(os.path.abspath(__file__))
-        name = os.path.normpath(os.path.join(base, filename))
+        name = os.path.normpath(os.path.join(base,"data", filename))
         self.f = open(name, 'w')
 
     def write(self,time,value):
