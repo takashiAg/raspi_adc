@@ -43,3 +43,9 @@ class mcp3208():
                 adcout |= 0x1
         GPIO.output(self.cs, GPIO.HIGH)
         return adcout
+
+    def read_all(self):
+        read_adc = []
+        for i in range(7):
+            read_adc.append(self.read(i))
+        return read_adc
