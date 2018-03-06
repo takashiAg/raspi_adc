@@ -4,7 +4,7 @@ from RPi import GPIO
 
 
 class mcp3208():
-    def __init__(self, SPICLK=11, SPIMOSI=10, SPIMISO=9, SPICS=8):
+    def __init__(self, type=1, SPICLK=11, SPIMOSI=10, SPIMISO=9, SPICS=8):
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(SPICLK, GPIO.OUT)
         GPIO.setup(SPIMOSI, GPIO.OUT)
@@ -14,6 +14,10 @@ class mcp3208():
         self.ck = SPICLK
         self.mosi = SPIMOSI
         self.miso = SPIMISO
+        if type == 0:
+            self.type = 0
+        if type == 1
+            self.type = 1
 
     def read(self, adcnum):
         if adcnum > 7 or adcnum < 0:
@@ -42,6 +46,8 @@ class mcp3208():
             if i > 0 and GPIO.input(self.miso) == GPIO.HIGH:
                 adcout |= 0x1
         GPIO.output(self.cs, GPIO.HIGH)
+        if self.type == 1:
+            adcout = adcout / 4096 * 3.3
         return adcout
 
     def read_all(self):
