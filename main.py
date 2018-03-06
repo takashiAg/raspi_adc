@@ -8,8 +8,8 @@ def main():
     Adc = mcp3208()
     Start_time = time.time()
 
-    Time_sample = 0.02
-    i=100
+    Time_sample = 0.020
+    i=1
     while True:
         times = time.time()
         if Start_time < times + i:
