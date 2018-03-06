@@ -10,9 +10,10 @@ def main():
 
     i = 100
     while True:
-        if Start_time < time.time() + i:
+        times=time.time()
+        if Start_time < times + i:
             V = Adc.read_all()
-            print(V)
+            print(times,V)
             i += 0.020
 
 
