@@ -1,6 +1,6 @@
 class file_write():
     def __init__(self,filename):
-        self.f = open(filename, 'w')
+        self.f = open("./"+filename, 'w')
 
     def write(self,time,value):
         self.f.write(str(time))

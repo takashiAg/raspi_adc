@@ -13,10 +13,10 @@ def main():
     Time_sample = 0.020
     i=1
     while True:
-        times = time.time()
-        if Start_time < times - i:
+        Mesurement_time = time.time()-Start_time
+        if Mesurement_time > i:
             V = Adc.read_all()
-            file.write(times,V)
+            file.write(Mesurement_time,V)
             i += Time_sample
 
     file.close()
