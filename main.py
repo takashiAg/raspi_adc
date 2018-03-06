@@ -15,7 +15,8 @@ def main():
         times = time.time()
         if Start_time < times + i:
             V = Adc.read(0)
-            f.writelines(times)
+            f.write(str(times))
+            f.write("\n")
             i += Time_sample
 
 
