@@ -12,10 +12,10 @@ def main():
         print(time.time(),inputVal0)
     print(time.time()-Start_time)
     while Start_time+10>time.time():
-        Start_time=time.time()
+        Start_time_local=time.time()
         inputVal0 = Adc.read_all()
         Stop_time=time.time()
-        print(Stop_time-Start_time,inputVal0)
+        print(Stop_time-Start_time_local,inputVal0)
 
 
 if __name__=="__main__":
