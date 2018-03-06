@@ -9,7 +9,7 @@ def main():
     Start_time = time.time()
     f = open('text.txt', 'w')
 
-    Time_sample = 0.020
+    Time_sample = 0.100
     i=1
     while True:
         times = time.time()
