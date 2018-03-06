@@ -52,6 +52,6 @@ class mcp3208():
 
     def read_all(self):
         read_adc = []
-        for i in range(7):
+        for i in range(8):
             read_adc.append(self.read(i))
         return read_adc[:]
