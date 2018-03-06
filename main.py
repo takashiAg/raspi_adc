@@ -5,8 +5,19 @@ import time
 
 
 def main():
-    Adc=mcp3208()
-    Start_time=time.time()
+    Adc = mcp3208()
+    Start_time = time.time()
+
+    i = 100
+    while True:
+        if Start_time > time.time() + i:
+            V = Adc.read_all()
+            print(V)
+            i += 20
+
+
+
+    """
     while Start_time+10>time.time():
         inputVal0 = Adc.read(0)
         print(time.time(),inputVal0)
@@ -20,7 +31,8 @@ def main():
     Stop_time=time.time()
 
     print(Stop_time-Start_time)
+    """
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     main()
