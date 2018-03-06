@@ -13,7 +13,7 @@ def main():
     i=1
     while True:
         times = time.time()
-        if Start_time < times + i:
+        if Start_time < times - i:
             V = Adc.read(0)
             f.write(str(times))
             f.write("\n")
