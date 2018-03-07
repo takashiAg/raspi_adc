@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from mcp3208 import mcp3208
+import mcp3208
 import time
 import file_write
 from Realtime_plot import realtime
@@ -7,12 +7,11 @@ from make_axis import axis
 
 
 def main():
-    Adc = mcp3208()
-    Start_time = time.time()
+    Adc = mcp3208.mcp3208()
+    Realtime = realtime()
 
     file = file_write.file_write("a")
-
-    Realtime = realtime()
+    Start_time = time.time()
     x = axis()
     y = [axis(), axis(), axis(), axis(), axis(), axis(), axis(), axis()]
     Time_sample = 0.020

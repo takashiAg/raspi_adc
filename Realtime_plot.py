@@ -7,12 +7,14 @@ class realtime():
         self.fig, self.ax = self.plt.subplots(1, 1)
 
         self.lines, = self.ax.plot(x_data, y_data)
+        self.lines2, = self.ax.plot(x_data, y_data)
 
 
     def plot(self, x_data, y_data):
-        self.lines.set_data(x_data, y_data)
+        self.lines.set_data(x_data, y_data[0])
         self.ax.set_xlim((x_data.min(), x_data.max()))
         self.ax.set_ylim((y_data.min(), y_data.max()))
+        self.line2.set_data(x_data, y_data[1])
         self.plt.pause(.01)
 
     def pause(self):
