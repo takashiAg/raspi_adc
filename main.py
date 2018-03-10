@@ -23,7 +23,7 @@ Time_before = 0
 
 def runner():
     global Time_before
-    Sample_thread = threading.Timer(Time_sample, target=runner)
+    Sample_thread = threading.Timer(Time_sample, runner)
     Sample_thread.start()
 
     Mesurement_time = time.time() - Time_before
