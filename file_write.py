@@ -11,7 +11,7 @@ class file_write():
 
         now = datetime.datetime.now()
         filename = "{0:%Y-%m-%d_%H-%M-%S}".format(now)
-        name = os.path.normpath(os.path.join(base, "data", filename, ".csv"))
+        name = os.path.normpath(os.path.join(base, "data", filename + ".csv"))
         self.f = open(name, 'w')
 
     def write(self, time, value):
