@@ -20,9 +20,8 @@ def main():
     file_path = current_file_path()
     realtime = Realtime_plot.realtime()
     while True:
-        f = open(file_path, "r")
-        data = [line for line in csv.reader(f)][-100:]
-        f.close()
+        data = np.loadtxt(file_path, delimiter=",")
+        return data
         x_data = [float(d[0]) for d in data]
         y_data = [
             [float(d[1]) - float(d[2]) for d in data],
