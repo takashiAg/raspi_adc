@@ -12,7 +12,7 @@ x = axis()
 y = axis_array(Array_length=8)
 
 
-def runner():
+def runner(x,y):
     Adc = mcp3208.mcp3208(Voltage_divider=5)
 
     file = file_write.file_write()
@@ -24,8 +24,8 @@ def runner():
         if Mesurement_time > Data_number * Time_sample:
             V = Adc.read_all()
             file.write(Mesurement_time, V)
-            self.x.update(Mesurement_time)
-            self.y.update(V)
+            x.update(Mesurement_time)
+            y.update(V)
             Data_number += 1
 
 
