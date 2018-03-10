@@ -41,8 +41,9 @@ def main():
     time.sleep(5)
 
     while True:
-        Realtime.plot(x.axis[:], y.axis[:])
-        Realtime.pause()
+        # Realtime.plot(x.axis[:], y.axis[:])
+        # Realtime.pause()
+        pass
 
 
 if __name__ == "__main__":
