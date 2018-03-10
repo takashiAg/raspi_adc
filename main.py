@@ -12,12 +12,12 @@ x = axis()
 y = axis_array(Array_length=8)
 
 
-def runner(self):
+def runner():
     Adc = mcp3208.mcp3208(Voltage_divider=5)
 
     file = file_write.file_write()
     Start_time = time.time()
-    Time_sample = 0.020
+    Time_sample = 0.040
     Data_number = 0
     while True:
         Mesurement_time = time.time() - Start_time
@@ -35,7 +35,7 @@ def main():
     Realtime = realtime(Quantity_data=8)
     # Sample_thread = sample_thread(Realtime)
     # Sample_thread.start()
-    Sample_thread = threading.Thread(target=runner, name="Sample_thread", args=(x, y,))
+    Sample_thread = threading.Thread(target=runner, name="Sample_thread")
     Sample_thread.start()
 
     time.sleep(5)
