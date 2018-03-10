@@ -34,5 +34,6 @@ def main():
         y_data = [speaker_voltage, input1, input2, input3]
         realtime.plot(x_data, y_data, pause_time=0.1)
 
-    if __name__ == "__main__":
-        main()
+
+if __name__ == "__main__":
+    main()
