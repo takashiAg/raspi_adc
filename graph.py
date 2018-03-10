@@ -20,7 +20,12 @@ def current_file_path():
 def main():
     time.sleep(10)
     file_path = current_file_path()
-    realtime = Realtime_plot.realtime(Quantity_data=4)
+    realtime = [
+        Realtime_plot.realtime(),
+        Realtime_plot.realtime(),
+        Realtime_plot.realtime(),
+        Realtime_plot.realtime()
+    ]
     while True:
         f = open(file_path, "r")
         data_string = [line for line in csv.reader(f)][-201:-1]
@@ -31,8 +36,10 @@ def main():
         input1 = data[3]
         input2 = data[4]
         input3 = data[5]
-        y_data = [speaker_voltage, input1, input2, input3]
-        realtime.plot(x_data, y_data, pause_time=0.1)
+        realtime[0].plot(x_data, speaker_voltage)
+        realtime[1].plot(x_data, input1)
+        realtime[2].plot(x_data, input2)
+        realtime[3].plot(x_data, input3)
 
 
 if __name__ == "__main__":
