@@ -1,12 +1,16 @@
 import os
 
+
 class file_write():
-    def __init__(self,filename):
+    def __init__(self, filename):
         base = os.path.dirname(os.path.abspath(__file__))
-        name = os.path.normpath(os.path.join(base,"data", filename))
+        Dir_path = os.path.normpath(os.path.join(base, "data"))
+        if not (os.path.isdir(Dir_path)):
+            os.mkdir(Dir_path)
+        name = os.path.normpath(os.path.join(base, "data", filename))
         self.f = open(name, 'w')
 
-    def write(self,time,value):
+    def write(self, time, value):
         self.f.write(str(time))
         self.f.write(",")
         self.f.write(str(value[0]))
