@@ -16,8 +16,9 @@ Adc = mcp3208.mcp3208(Voltage_divider=5)
 file = file_write.file_write()
 Start_time = time.time()
 Time_sample = 0.020
-
 Time_before = 0
+
+Time_sample -= 0.0007
 
 
 def runner():
