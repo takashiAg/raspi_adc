@@ -1,3 +1,6 @@
+import numpy as np
+
+
 class axis():
     def __init__(self, sample=100):
         self.axis = []
@@ -22,7 +25,7 @@ class axis_array():
     def update(self, Array_value_new):
         for key, Value_new in enumerate(self._axis):
             self._axis[key].update(Array_value_new[key])
-        self.axis = self._axis()
+        self.axis = np.array(self._axis()).T
 
     def _axis(self):
         Return_value = []
