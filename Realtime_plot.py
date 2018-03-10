@@ -29,7 +29,6 @@ class realtime():
 
         self.ax.set_xlim((x_data.min(), x_data.max()))
         self.ax.set_ylim((y_min, y_max))
-        self.plt.pause(.01)
 
     def pause(self):
         self.plt.pause(.01)
