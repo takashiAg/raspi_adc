@@ -20,7 +20,7 @@ def current_file_path():
 def main():
     time.sleep(10)
     file_path = current_file_path()
-    realtime = Realtime_plot.realtime(Quantity_data=5)
+    realtime = Realtime_plot.realtime(Quantity_data=4)
     while True:
         f = open(file_path, "r")
         data_string = [line for line in csv.reader(f)][-201:-1]
