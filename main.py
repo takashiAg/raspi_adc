@@ -41,6 +41,7 @@ def main():
     time.sleep(5)
 
     while True:
+        time.sleep(1)
         Realtime.plot(x.axis, y.axis)
         Realtime.pause()
 
