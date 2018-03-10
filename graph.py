@@ -4,6 +4,7 @@ import make_axis
 import Realtime_plot
 import csv
 import os
+import time
 
 
 def current_file_path():
@@ -26,6 +27,7 @@ def main():
     while True:
         lines = [line for line in csv.reader(f)]
         print(lines[-100:])
+        time.sleep(1)
 
 
 if __name__ == "__main__":
