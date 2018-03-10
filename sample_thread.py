@@ -6,7 +6,7 @@ import file_write
 
 class sample_thread(threading.Thread):
     def __init__(self, x, y):
-        super(sample_thread, self).__init__(args=(x, y))
+        super(sample_thread, self).__init__(args=(x, y,))
 
     def run(self, x, y):
         Adc = mcp3208.mcp3208(Voltage_divider=5)
