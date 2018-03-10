@@ -25,10 +25,7 @@ def runner():
     global Time_sample
     Sample_thread = threading.Timer(Time_sample, runner)
     Sample_thread.start()
-
-    global Time_before
-    Mesurement_time = time.time() - Time_before
-    Time_before = time.time()
+    Mesurement_time = time.time()
     global file
     global runner
     global x
