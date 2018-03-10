@@ -8,7 +8,7 @@ from make_axis import axis,axis_array
 
 def main():
     Adc = mcp3208.mcp3208()
-    Realtime = realtime()
+    Realtime = realtime(Quantity_data=8)
 
     file = file_write.file_write("a")
     Start_time = time.time()
