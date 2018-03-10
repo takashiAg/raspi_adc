@@ -30,4 +30,4 @@ class realtime():
         self.ax.set_ylim((y_min, y_max))
 
     def pause(self):
-        self.plt.pause(.01)
+        self.plt.pause(.000000000001)
