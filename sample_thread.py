@@ -2,21 +2,20 @@ import threading
 import mcp3208
 import time
 import file_write
-from make_axis import axis, axis_array
 
 
 class sample_thread(threading.Thread):
-    def __init__(self, Realtime):
+    def __init__(self, Realtime,x,y):
         super(sample_thread, self).__init__()
         self.Realtime = Realtime
+        self.x=x
+        self.y=y
 
     def run(self):
         Adc = mcp3208.mcp3208(Voltage_divider=5)
 
         file = file_write.file_write()
         Start_time = time.time()
-        x = axis()
-        y = axis_array(Array_length=8)
         Time_sample = 0.020
         Data_number = 0
         while True:
@@ -24,7 +23,6 @@ class sample_thread(threading.Thread):
             if Mesurement_time > Data_number * Time_sample:
                 V = Adc.read_all()
                 file.write(Mesurement_time, V)
-                x.update(Mesurement_time)
-                y.update(V)
-                self.Realtime.plot(x.axis, y.axis)
+                self.x.update(Mesurement_time)
+                self.y.update(V)
                 Data_number += 1
