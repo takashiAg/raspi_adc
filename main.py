@@ -5,19 +5,16 @@ import time
 
 
 def main():
-
     print("program started")
 
     Realtime = realtime(Quantity_data=8)
-    Sample_thread = sample_thread()
-    Sample_thread.start(Realtime)
-
+    Sample_thread = sample_thread(Realtime)
+    Sample_thread.start()
 
     time.sleep(5)
 
     while True:
         Realtime.pause()
-
 
 
 if __name__ == "__main__":

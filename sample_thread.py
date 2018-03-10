@@ -6,13 +6,13 @@ from make_axis import axis, axis_array
 
 
 class sample_thread(threading.Thread):
-
     """docstring for TestThread"""
 
-    def __init__(self):
+    def __init__(self,Realtime):
         super(sample_thread, self).__init__()
+        self.Realtime=Realtime
 
-    def run(self,Realtime):
+    def run(self):
         Adc = mcp3208.mcp3208()
 
         file = file_write.file_write("a")
@@ -28,4 +28,4 @@ class sample_thread(threading.Thread):
                 file.write(Mesurement_time, V)
                 x.update(Mesurement_time)
                 y.update(V)
-                Realtime.plot(x.axis, y.axis)
+                self.Realtime.plot(x.axis, y.axis)
