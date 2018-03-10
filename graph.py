@@ -21,13 +21,12 @@ def main():
     realtime = Realtime_plot.realtime()
     while True:
         f = open(file_path, "r")
-        data = [line for line in csv.reader(f)][-101:-1]
+        data_string = [line for line in csv.reader(f)][-101:-1]
         f.close()
-        x_data = [np.float(d[0]) for d in data]
-        y_data = [np.float(d[1:]) for d in data]
-        realtime.plot(x_data, y_data, pause_time=0.1)
+        data = np.float([d for d in data_string])
+        # realtime.plot(x_data, y_data, pause_time=0.1)
 
-        return x_data, y_data
+        return data
 
 
 if __name__ == "__main__":
