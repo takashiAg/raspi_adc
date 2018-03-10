@@ -13,6 +13,10 @@ class file_write():
         filename = "{0:%Y-%m-%d_%H-%M-%S}".format(now)
         name = os.path.normpath(os.path.join(base, "data", filename + ".csv"))
         self.f = open(name, 'w')
+        currentfile = os.path.normpath(os.path.join(base, "data", "current_file"))
+        f = open(currentfile, 'w')
+        f.write(name)
+        f.close()
 
     def write(self, time, value):
         self.f.write(str(time))
