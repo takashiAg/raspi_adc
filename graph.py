@@ -39,7 +39,7 @@ def main():
         realtime[0].plot(x_data, speaker_voltage)
         realtime[1].plot(x_data, input1)
         realtime[2].plot(x_data, input2)
-        realtime[3].plot(x_data, input3)
+        realtime[3].plot(x_data, input3, pause_time=0.1)
 
 
 if __name__ == "__main__":
