@@ -9,10 +9,8 @@ class sample_thread(threading.Thread):
 
     """docstring for TestThread"""
 
-    def __init__(self, n, t):
+    def __init__(self):
         super(sample_thread, self).__init__()
-        self.n = n
-        self.t = t
 
     def run(self,Realtime):
         Adc = mcp3208.mcp3208()
