@@ -23,10 +23,9 @@ def main():
         f = open(file_path, "r")
         data_string = [line for line in csv.reader(f)][-101:-1]
         f.close()
-        data = np.float([d for d in data_string])
-        # realtime.plot(x_data, y_data, pause_time=0.1)
+        data = np.float64([d for d in data_string]).T
+        realtime.plot(data[0], data[1:], pause_time=0.1)
 
-        return data
 
 
 if __name__ == "__main__":
