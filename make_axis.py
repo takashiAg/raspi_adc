@@ -8,7 +8,8 @@ class axis():
 
     def update(self, Value_new):
         while len(self.axis) >= self.sample:
-            self.axis = self.axis[1:][:]
+            self.axis=[self.axis[i+1] for i in range(len(self.axis)-1)]
+
         self.axis.append(Value_new)
         return self.axis
 

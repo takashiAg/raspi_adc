@@ -11,7 +11,7 @@ class sample_thread(threading.Thread):
         self.Realtime = Realtime
 
     def run(self):
-        Adc = mcp3208.mcp3208()
+        Adc = mcp3208.mcp3208(Voltage_divider=5)
 
         file = file_write.file_write()
         Start_time = time.time()

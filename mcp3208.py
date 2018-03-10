@@ -4,12 +4,13 @@ from RPi import GPIO
 
 
 class mcp3208():
-    def __init__(self, type=1, SPICLK=11, SPIMOSI=10, SPIMISO=9, SPICS=8):
+    def __init__(self, type=1, SPICLK=11, SPIMOSI=10, SPIMISO=9, SPICS=8, Voltage_divider=3.3):
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(SPICLK, GPIO.OUT)
         GPIO.setup(SPIMOSI, GPIO.OUT)
         GPIO.setup(SPIMISO, GPIO.IN)
         GPIO.setup(SPICS, GPIO.OUT)
+        self.Voltage_divider = Voltage_divider
         self.cs = SPICS
         self.ck = SPICLK
         self.mosi = SPIMOSI
@@ -47,7 +48,7 @@ class mcp3208():
                 adcout |= 0x1
         GPIO.output(self.cs, GPIO.HIGH)
         if self.type == 1:
-            adcout = float(adcout) / 4096 * 3.3
+            adcout = float(adcout) / 4096 * self.Voltage_divider
         return adcout
 
     def read_all(self):
