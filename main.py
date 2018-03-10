@@ -3,7 +3,7 @@ import mcp3208
 import time
 import file_write
 from Realtime_plot import realtime
-from make_axis import axis
+from make_axis import axis,axis_array
 
 
 def main():
@@ -13,7 +13,7 @@ def main():
     file = file_write.file_write("a")
     Start_time = time.time()
     x = axis()
-    y = [axis(), axis(), axis(), axis(), axis(), axis(), axis(), axis()]
+    y = axis_array()
     Time_sample = 0.020
     Data_number = 0
     while True:
@@ -22,8 +22,8 @@ def main():
             V = Adc.read_all()
             file.write(Mesurement_time, V)
             x.update(Mesurement_time)
-            y[0].update(V[0])
-            Realtime.plot(x.axis,y[0].axis)
+            y.update(V)
+            Realtime.plot(x.axis,y.axis)
 
             Data_number += 1
 
