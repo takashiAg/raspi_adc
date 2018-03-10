@@ -1,13 +1,17 @@
 import os
+import datetime
 
 
 class file_write():
-    def __init__(self, filename):
+    def __init__(self):
         base = os.path.dirname(os.path.abspath(__file__))
         Dir_path = os.path.normpath(os.path.join(base, "data"))
         if not (os.path.isdir(Dir_path)):
             os.mkdir(Dir_path)
-        name = os.path.normpath(os.path.join(base, "data", filename))
+
+        now = datetime.datetime.now()
+        filename = "{0:%Y-%m-%d_%H-%M-%S}".format(now)
+        name = os.path.normpath(os.path.join(base, "data", filename, ".csv"))
         self.f = open(name, 'w')
 
     def write(self, time, value):
