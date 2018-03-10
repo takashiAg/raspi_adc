@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
 from Realtime_plot import realtime
 from make_axis import axis, axis_array
-# from sample_thread import sample_thread
-# import time
-import threading
-import mcp3208
+from sample_thread import sample_thread
 import time
-import file_write
 
-x = axis()
-y = axis_array(Array_length=8)
+# import threading
+# import mcp3208
+# import time
+# import file_write
 
 
+'''
 def runner():
     Adc = mcp3208.mcp3208(Voltage_divider=5)
 
@@ -27,22 +26,24 @@ def runner():
             x.update(Mesurement_time)
             y.update(V)
             Data_number += 1
+'''
 
 
 def main():
     print("program started")
 
+    x = axis()
+    y = axis_array(Array_length=8)
     Realtime = realtime(Quantity_data=8)
-    # Sample_thread = sample_thread(Realtime)
-    # Sample_thread.start()
-    Sample_thread = threading.Thread(target=runner, name="Sample_thread")
+    Sample_thread = sample_thread(x, y)
     Sample_thread.start()
+    # Sample_thread = threading.Thread(target=runner, name="Sample_thread")
+    # Sample_thread.start()
 
     time.sleep(5)
 
     while True:
-        time.sleep(1)
-        Realtime.plot(x.axis, y.axis)
+        Realtime.plot(x.axis[:], y.axis[:])
         Realtime.pause()
 
 
