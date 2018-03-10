@@ -20,6 +20,9 @@ class realtime():
         if y_data.size == 1:
             y_data = [y_data]
 
+        for i in range(self.Quantity_data):
+            self.lines[i].set_data(x_data, y_data[i])
+
         y_min = y_data.min()
         y_max = y_data.max()
 
