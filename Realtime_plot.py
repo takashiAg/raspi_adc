@@ -14,21 +14,14 @@ class realtime():
             self.line, = self.ax.plot(x_data, y_data)
             self.lines.append(self.line)
 
-    def plot(self, x_data, y_data):
-        y_data = np.array(y_data)
-        x_data = np.array(x_data)
+    def plot(self, x_data_input, y_data_input):
+        y_data = np.array(y_data_input)
+        x_data = np.array(x_data_input)
         if y_data.size == 1:
             y_data = [y_data]
 
-        y_min = y_data[0].min()
-        y_max = y_data[0].max()
-
-        for i in range(self.Quantity_data):
-            self.lines[i].set_data(x_data, y_data[i])
-            if y_data[i].min() < y_min:
-                y_min = y_data[i].min()
-            if y_data[i].max() > y_max:
-                y_max = y_data[i].max()
+        y_min = y_data.min()
+        y_max = y_data.max()
 
         self.ax.set_xlim((x_data.min(), x_data.max()))
         self.ax.set_ylim((y_min, y_max))
