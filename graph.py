@@ -20,14 +20,19 @@ def current_file_path():
 def main():
     time.sleep(10)
     file_path = current_file_path()
-    realtime = Realtime_plot.realtime()
+    realtime = Realtime_plot.realtime(Quantity_data=5)
     while True:
         f = open(file_path, "r")
         data_string = [line for line in csv.reader(f)][-201:-1]
         f.close()
         data = np.float64([d for d in data_string]).T
-        realtime.plot(data[0], data[1:], pause_time=0.1)
+        x_data = data[0]
+        speaker_voltage = data[1] - data[2]
+        input1 = data[3]
+        input2 = data[4]
+        input3 = data[5]
+        y_data = [speaker_voltage, input1, input2, input3]
+        realtime.plot(x_data, y_data, pause_time=0.1)
 
-
-if __name__ == "__main__":
-    main()
+    if __name__ == "__main__":
+        main()
