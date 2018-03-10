@@ -21,21 +21,21 @@ Time_before = 0
 
 
 def runner():
+    global Time_sample
+    Sample_thread = threading.Timer(Time_sample, runner)
+    Sample_thread.start()
     global file
     global Time_before
-    global Time_sample
     global runner
     global x
     global y
-    Sample_thread = threading.Timer(Time_sample, runner)
-    Sample_thread.start()
 
     Mesurement_time = time.time() - Time_before
+    Time_before = time.time()
     V = Adc.read_all()
     file.write(Mesurement_time, V)
     x.update(Mesurement_time)
     y.update(V)
-    Time_before = time.time()
 
 
 def main():
