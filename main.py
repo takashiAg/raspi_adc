@@ -12,7 +12,7 @@ x = axis()
 y = axis_array(Array_length=8)
 
 
-def runner(x,y):
+def runner():
     Adc = mcp3208.mcp3208(Voltage_divider=5)
 
     file = file_write.file_write()
@@ -33,7 +33,7 @@ def main():
     print("program started")
 
     Realtime = realtime(Quantity_data=8)
-    Sample_thread = threading.Thread(target=runner, name="Sample_thread", args=(x, y,))
+    Sample_thread = threading.Thread(target=runner, name="Sample_thread")
     Sample_thread.start()
 
     time.sleep(5)
