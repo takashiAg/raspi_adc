@@ -13,7 +13,7 @@ def main():
     file = file_write.file_write("a")
     Start_time = time.time()
     x = axis()
-    y = axis_array()
+    y = axis_array(Array_length=8)
     Time_sample = 0.020
     Data_number = 0
     while True:
@@ -24,6 +24,7 @@ def main():
             x.update(Mesurement_time)
             y.update(V)
             Realtime.plot(x.axis,y.axis)
+            print(x.axis,y.axis)
 
             Data_number += 1
 
