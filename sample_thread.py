@@ -15,7 +15,7 @@ class sample_thread(threading.Thread):
     def run(self):
         Adc = mcp3208.mcp3208()
 
-        file = file_write.file_write("a")
+        file = file_write.file_write()
         Start_time = time.time()
         x = axis()
         y = axis_array(Array_length=8)
