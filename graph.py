@@ -4,7 +4,7 @@ import make_axis
 import Realtime_plot
 import csv
 import os
-import time
+import numpy as np
 
 
 def current_file_path():
@@ -18,16 +18,19 @@ def current_file_path():
 
 def main():
     file_path = current_file_path()
-    Time_sample = 0.020
-    Data_number = 0
-    x = make_axis.axis(sample=100)
-    y = make_axis.axis_array(sample=100)
+    realtime = Realtime_plot.realtime()
     while True:
         f = open(file_path, "r")
-        lines = [line for line in csv.reader(f)]
+        data = [line for line in csv.reader(f)][-100:]
         f.close()
-        print(lines[-100:])
-        time.sleep(1)
+        x_data = [d[0] for d in data]
+        y_data = [
+            [d[1] - d[2] for d in data],
+            [d[3] for d in data],
+            [d[4] for d in data],
+            [d[5] for d in data],
+        ]
+        realtime.plot(x_data, y_data, pause_time=0.1)
 
 
 if __name__ == "__main__":
