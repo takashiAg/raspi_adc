@@ -5,6 +5,7 @@ import Realtime_plot
 import csv
 import os
 import numpy as np
+import time
 
 
 def current_file_path():
@@ -17,15 +18,15 @@ def current_file_path():
 
 
 def main():
+    time.sleep(10)
     file_path = current_file_path()
     realtime = Realtime_plot.realtime()
     while True:
         f = open(file_path, "r")
-        data_string = [line for line in csv.reader(f)][-101:-1]
+        data_string = [line for line in csv.reader(f)][-201:-1]
         f.close()
         data = np.float64([d for d in data_string]).T
         realtime.plot(data[0], data[1:], pause_time=0.1)
-
 
 
 if __name__ == "__main__":
