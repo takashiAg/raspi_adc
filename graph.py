@@ -18,14 +18,14 @@ def current_file_path():
 def main():
     file_path = current_file_path()
 
-    print(file_path)
+    f = open(file_path, "r")
     Time_sample = 0.020
     Data_number = 0
     x = make_axis.axis(sample=100)
     y = make_axis.axis_array(sample=100)
     while True:
-        for line in csv.reader(file_path)[-100:]:
-            print(line)
+        lines = [line for line in csv.reader(f)]
+        print(lines[-100:])
 
 
 if __name__ == "__main__":
