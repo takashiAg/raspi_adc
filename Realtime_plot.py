@@ -16,7 +16,7 @@ class realtime():
     def plot(self, x_data, y_data):
         y_data=np.array(y_data)
         x_data=np.array(x_data)
-        if y_data[0].size==1:
+        if y_data.size==1:
             y_data=[y_data]
 
         y_min = y_data[0].min()
