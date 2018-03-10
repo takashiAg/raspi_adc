@@ -9,10 +9,10 @@ import time
 import file_write
 
 x = axis()
-y = axis_array(Array_length=8
+y = axis_array(Array_length=8)
 
 
-def runner(self):
+def runner():
     Adc = mcp3208.mcp3208(Voltage_divider=5)
 
     file = file_write.file_write()
