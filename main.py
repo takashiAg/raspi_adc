@@ -20,12 +20,15 @@ Time_before = 0
 
 Time_sample -= 0.0007
 
+Start_time = time.time()
+
 
 def runner():
     global Time_sample
     Sample_thread = threading.Timer(Time_sample, runner)
     Sample_thread.start()
-    Mesurement_time = time.time()
+    global Start_time
+    Mesurement_time = time.time() - Start_time
     global file
     global runner
     global x
