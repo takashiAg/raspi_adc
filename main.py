@@ -24,14 +24,15 @@ def runner():
     global Time_sample
     Sample_thread = threading.Timer(Time_sample, runner)
     Sample_thread.start()
-    global file
+
     global Time_before
+    Mesurement_time = time.time() - Time_before
+    Time_before = time.time()
+    global file
     global runner
     global x
     global y
 
-    Mesurement_time = time.time() - Time_before
-    Time_before = time.time()
     V = Adc.read_all()
     file.write(Mesurement_time, V)
     x.update(Mesurement_time)
