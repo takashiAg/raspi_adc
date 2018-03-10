@@ -16,22 +16,23 @@ Adc = mcp3208.mcp3208(Voltage_divider=5)
 file = file_write.file_write()
 Start_time = time.time()
 Time_sample = 0.020
-Data_number = 0
 
 Time_before = 0
 
 
 def runner():
+    global file
     global Time_before
     global Time_sample
+    global runner
+    global x
+    global y
     Sample_thread = threading.Timer(Time_sample, runner)
     Sample_thread.start()
 
     Mesurement_time = time.time() - Time_before
     V = Adc.read_all()
     file.write(Mesurement_time, V)
-    global x
-    global y
     x.update(Mesurement_time)
     y.update(V)
     Time_before = time.time()
