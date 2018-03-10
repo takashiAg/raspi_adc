@@ -25,10 +25,12 @@ class axis_array():
     def update(self, Array_value_new):
         for key, Value_new in enumerate(self._axis):
             self._axis[key].update(Array_value_new[key])
-        self.axis = np.array(self._axis()).T
+        self.axis = np.array(self._axis).T
 
+    """"
     def _axis(self):
         Return_value = []
         for key in range(len(self._axis)):
             Return_value.append(self._axis[key].axis)
         return Return_value
+    """
