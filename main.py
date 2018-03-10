@@ -12,7 +12,7 @@ def main():
     x = axis()
     y = axis_array(Array_length=8)
     Sample_thread = sample_thread(x,y,Realtime)
-    Sample_thread.start()
+    Sample_thread.start(x,y)
 
     time.sleep(5)
 

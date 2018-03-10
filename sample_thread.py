@@ -11,7 +11,7 @@ class sample_thread(threading.Thread):
         self.x=x
         self.y=y
 
-    def run(self):
+    def run(self,x,y):
         Adc = mcp3208.mcp3208(Voltage_divider=5)
 
         file = file_write.file_write()
