@@ -1,17 +1,11 @@
-import threading
-import mcp3208
-import time
-import file_write
+
 
 
 class sample_thread(threading.Thread):
-    def __init__(self, Realtime,x,y):
+    def __init__(self):
         super(sample_thread, self).__init__()
-        self.Realtime = Realtime
-        self.x=x
-        self.y=y
 
-    def run(self,x,y):
+    def run(self):
         Adc = mcp3208.mcp3208(Voltage_divider=5)
 
         file = file_write.file_write()
