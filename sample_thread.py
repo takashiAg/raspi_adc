@@ -6,11 +6,9 @@ from make_axis import axis, axis_array
 
 
 class sample_thread(threading.Thread):
-    """docstring for TestThread"""
-
-    def __init__(self,Realtime):
+    def __init__(self, Realtime):
         super(sample_thread, self).__init__()
-        self.Realtime=Realtime
+        self.Realtime = Realtime
 
     def run(self):
         Adc = mcp3208.mcp3208()
@@ -29,3 +27,4 @@ class sample_thread(threading.Thread):
                 x.update(Mesurement_time)
                 y.update(V)
                 self.Realtime.plot(x.axis, y.axis)
+                Data_number += 1
