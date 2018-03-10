@@ -23,12 +23,12 @@ def main():
         f = open(file_path, "r")
         data = [line for line in csv.reader(f)][-100:]
         f.close()
-        x_data = [d[0] for d in data]
+        x_data = [float(d[0]) for d in data]
         y_data = [
-            [d[1] - d[2] for d in data],
-            [d[3] for d in data],
-            [d[4] for d in data],
-            [d[5] for d in data],
+            [float(d[1]) - float(d[2]) for d in data],
+            [float(d[3]) for d in data],
+            [float(d[4]) for d in data],
+            [float(d[5]) for d in data],
         ]
         realtime.plot(x_data, y_data, pause_time=0.1)
 
