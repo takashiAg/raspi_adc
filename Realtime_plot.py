@@ -5,22 +5,22 @@ import numpy as np
 class realtime():
     def __init__(self, x_data=[0], y_data=[0], Quantity_of_data=4):
         self.plt = plt
-        self.fig = self.plt.figure()
+        self.fig, self.ax = self.plt.subplots(Quantity_of_data, 1)
 
         self.Quantity_of_data = Quantity_of_data
-        self.ax = []
+        self.lines = []
         for Number_of_data in range(Quantity_of_data):
-            self.ax = self.fig.add_subplot(Quantity_of_data, 1, Number_of_data + 1)
-            self.axis.append(self.ax.plot(x_data, y_data))
+            self.line, = self.ax[Number_of_data].plot(x_data, y_data)
+            self.lines.append(self.line)
 
     def plot(self, x_data, y_data, pause_time=0):
         y_data = np.array(y_data)
         x_data = np.array(x_data)
 
         for i in range(self.Quantity_of_data):
-            self.axis[i].set_data(x_data, y_data[i])
-            self.axis[i].set_xlim((x_data.min(), x_data.max()))
-            self.axis[i].set_ylim((y_data.min(), y_data.max()))
+            self.lines[i].set_data(x_data, y_data[i])
+            self.ax[i].set_xlim((x_data.min(), x_data.max()))
+            self.ax[i].set_ylim((y_data[i].min(), y_data[i].max()))
 
         if pause_time == 0:
             return
