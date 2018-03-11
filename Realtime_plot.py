@@ -10,7 +10,7 @@ class realtime():
         self.Quantity_of_data = Quantity_of_data
         self.ax = []
         for Number_of_data in range(Quantity_of_data):
-            ax = self.fig.add_subplot(Quantity_of_data, 1, Number_of_data)
+            ax = self.fig.add_subplot(Quantity_of_data, 1, Number_of_data + 1)
             self.ax.append(ax.plot(x_data, y_data))
 
     def plot(self, x_data, y_data, pause_time=0):
