@@ -17,8 +17,7 @@ class realtime():
         y_data = np.array(y_data)
         x_data = np.array(x_data)
 
-
-        for i in range(self.Quantity_data):
+        for i in range(self.Quantity_of_data):
             self.ax[i].set_data(x_data, y_data[i])
             self.ax.set_xlim((x_data.min(), x_data.max()))
             self.ax.set_ylim((y_data.min(), y_data.max()))
