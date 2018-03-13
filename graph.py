@@ -23,7 +23,7 @@ def main():
     realtime = Realtime_plot.realtime(Quantity_of_data=4)
     while True:
         f = open(file_path, "r")
-        data_string = [line for line in csv.reader(f)][-201:-1]
+        data_string = [line for line in csv.reader(f)][-501:-1]
         f.close()
         data = np.float64([d for d in data_string]).T
         x_data = data[0]
